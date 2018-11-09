@@ -1,8 +1,6 @@
 import os
-import shutil
 import numpy  as np
 import cv2
-from skimage import data
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 from sklearn.decomposition import IncrementalPCA
