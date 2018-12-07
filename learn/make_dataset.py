@@ -1,10 +1,11 @@
-import os
 import glob
+import os
 import cv2
 import numpy as np
 from keras.utils import np_utils
 from sklearn.model_selection import train_test_split
-
+from sklearn.model_selection import KFold
+from sklearn.model_selection import train_test_split
 
 def get_dataset(dir_list):
     X = []
@@ -23,6 +24,7 @@ def get_dataset(dir_list):
     return X, Y
 
 
+
 def normalize_dataset(X, Y, NUMCLASSES):
     X = np.array(X)
     Y = np.array(Y)
@@ -32,8 +34,10 @@ def normalize_dataset(X, Y, NUMCLASSES):
     return X, Y
 
 
+
 def make_dataset(dir_root_list, NUMCLASSES):
     X, Y = get_dataset(dir_root_list)
     X, Y = normalize_dataset(X, Y, NUMCLASSES)
-    X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3)
-    return X_train, X_test, y_train, y_test
+#     X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.3)
+#     return X_train, X_test, y_train, y_test
+    return X, Y
